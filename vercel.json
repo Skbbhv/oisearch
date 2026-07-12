@@ -1,0 +1,20 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/over.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/(icon-.*\\.png|oimail-icon-.*\\.png|apple-touch-icon.*\\.png|og\\.png|oimail-og\\.png)",
+      "headers": [ { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" } ]
+    }
+  ]
+}
